@@ -10,9 +10,6 @@ string n2;
 
 void fun1(){
 
-    cout<<"---------------------------------------------------------"<<endl;
-    cout<<n1<<" is the first player so he/she will start first"<<endl;
-
     cout<<"   |   |   \n";
     cout<<" "<<space[0][0]<<" | "<<space[0][1]<<" | "<<space[0][2]<<endl;
     cout<<"___|___|___\n";
@@ -27,11 +24,11 @@ void fun1(){
 void fun2(){
     int digit;
     if(token=='x'){
-        cout<<"Please enter : ";
+        cout<<n1<<" its Your turn, Please enter : ";
         cin>>digit;
     }
     if(token=='0'){
-        cout<<"Please enter : ";
+        cout<<n2<<" its Your turn, Please enter : ";
         cin>>digit;
     }
 
@@ -75,7 +72,7 @@ void fun2(){
         cout<<"Invalid Input"<<endl;
     }
 
-    //------------------------
+    //-----------putting x and 0 to spaces-------------
 
     if(token=='x' && space[row][col]!='x' && space[row][col]!='0'){
         space[row][col] = 'x';
@@ -120,17 +117,22 @@ int main(){
     getline(cin,n1);
     cout<<"Enter the name of the second player : ";
     getline(cin,n2);
+    cout<<"############################################################################"<<endl;
+    cout<<n1<<" is the first player so he/she will start first and take x"<<endl;
+
     while(!fun3()){
         fun1();
         fun2();
     }
     if(token == 'x'){
+        cout<<"Hurray!! "<<endl;
         cout<<n2<<" is the winner"<<endl;
     }
     else if(token == '0'){
+        cout<<"Hurray!! "<<endl;
         cout<<n1<<" is the winner"<<endl;
     }
     else{
-        cout<<"Game Draw!!!"<<endl;
+        cout<<"--------Game Draw!!!---------"<<endl;
     }
 }
